@@ -14,6 +14,8 @@ public class VentanaCalculadora extends javax.swing.JFrame {
     /**
      * Creates new form VentanaCalculadora
      */
+    double operando1 = 0;//guarda el primer número que metamos
+    String operacion = "";//guarda la operación pulsada
     public VentanaCalculadora() {
         initComponents();
     }
@@ -38,9 +40,12 @@ public class VentanaCalculadora extends javax.swing.JFrame {
         boton02 = new javax.swing.JButton();
         boton03 = new javax.swing.JButton();
         boton00 = new javax.swing.JButton();
+        suma = new javax.swing.JButton();
+        igual = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setFont(new java.awt.Font("Consolas", 0, 48)); // NOI18N
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         pantalla.setBackground(new java.awt.Color(0, 0, 0));
         pantalla.setFont(new java.awt.Font("Consolas", 0, 48)); // NOI18N
@@ -48,6 +53,7 @@ public class VentanaCalculadora extends javax.swing.JFrame {
         pantalla.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         pantalla.setText("0");
         pantalla.setOpaque(true);
+        getContentPane().add(pantalla, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 11, 355, 75));
 
         boton07.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
         boton07.setText("7");
@@ -56,6 +62,7 @@ public class VentanaCalculadora extends javax.swing.JFrame {
                 boton07ActionPerformed(evt);
             }
         });
+        getContentPane().add(boton07, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 104, 64, 64));
 
         boton08.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
         boton08.setText("8");
@@ -64,6 +71,7 @@ public class VentanaCalculadora extends javax.swing.JFrame {
                 boton08ActionPerformed(evt);
             }
         });
+        getContentPane().add(boton08, new org.netbeans.lib.awtextra.AbsoluteConstraints(92, 104, 64, 64));
 
         boton09.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
         boton09.setText("9");
@@ -72,6 +80,7 @@ public class VentanaCalculadora extends javax.swing.JFrame {
                 boton09ActionPerformed(evt);
             }
         });
+        getContentPane().add(boton09, new org.netbeans.lib.awtextra.AbsoluteConstraints(174, 104, 64, 64));
 
         boton04.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
         boton04.setText("4");
@@ -80,6 +89,7 @@ public class VentanaCalculadora extends javax.swing.JFrame {
                 boton04ActionPerformed(evt);
             }
         });
+        getContentPane().add(boton04, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 186, 64, 64));
 
         boton05.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
         boton05.setText("5");
@@ -88,6 +98,7 @@ public class VentanaCalculadora extends javax.swing.JFrame {
                 boton05ActionPerformed(evt);
             }
         });
+        getContentPane().add(boton05, new org.netbeans.lib.awtextra.AbsoluteConstraints(92, 186, 64, 64));
 
         boton06.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
         boton06.setText("6");
@@ -96,6 +107,7 @@ public class VentanaCalculadora extends javax.swing.JFrame {
                 boton06ActionPerformed(evt);
             }
         });
+        getContentPane().add(boton06, new org.netbeans.lib.awtextra.AbsoluteConstraints(174, 186, 64, 64));
 
         boton01.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
         boton01.setText("1");
@@ -104,6 +116,7 @@ public class VentanaCalculadora extends javax.swing.JFrame {
                 boton01ActionPerformed(evt);
             }
         });
+        getContentPane().add(boton01, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 268, 64, 64));
 
         boton02.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
         boton02.setText("2");
@@ -112,6 +125,7 @@ public class VentanaCalculadora extends javax.swing.JFrame {
                 boton02ActionPerformed(evt);
             }
         });
+        getContentPane().add(boton02, new org.netbeans.lib.awtextra.AbsoluteConstraints(92, 268, 64, 64));
 
         boton03.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
         boton03.setText("3");
@@ -120,6 +134,7 @@ public class VentanaCalculadora extends javax.swing.JFrame {
                 boton03ActionPerformed(evt);
             }
         });
+        getContentPane().add(boton03, new org.netbeans.lib.awtextra.AbsoluteConstraints(174, 268, 64, 64));
 
         boton00.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
         boton00.setText("0");
@@ -128,62 +143,25 @@ public class VentanaCalculadora extends javax.swing.JFrame {
                 boton00ActionPerformed(evt);
             }
         });
+        getContentPane().add(boton00, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 350, 64, 64));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(boton07, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(boton08, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(boton09, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(pantalla, javax.swing.GroupLayout.PREFERRED_SIZE, 355, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(boton04, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(boton05, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(boton06, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(boton01, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(boton02, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(boton03, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(82, 82, 82)
-                        .addComponent(boton00, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(0, 14, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(pantalla, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(boton07, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(boton08, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(boton09, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(boton04, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(boton05, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(boton06, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(boton01, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(boton02, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(boton03, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(boton00, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(194, Short.MAX_VALUE))
-        );
+        suma.setFont(new java.awt.Font("Consolas", 0, 48)); // NOI18N
+        suma.setText("+");
+        suma.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sumaActionPerformed(evt);
+            }
+        });
+        getContentPane().add(suma, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 105, 64, 64));
+
+        igual.setFont(new java.awt.Font("Consolas", 0, 48)); // NOI18N
+        igual.setText("=");
+        igual.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                igualActionPerformed(evt);
+            }
+        });
+        getContentPane().add(igual, new org.netbeans.lib.awtextra.AbsoluteConstraints(92, 350, 160, 70));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -203,7 +181,8 @@ public class VentanaCalculadora extends javax.swing.JFrame {
             pantalla.setText("8");
         }else{
             pantalla.setText(auxiliar + "8");
-        }    }//GEN-LAST:event_boton08ActionPerformed
+        }
+    }//GEN-LAST:event_boton08ActionPerformed
 
     private void boton09ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton09ActionPerformed
                 String auxiliar = pantalla.getText();
@@ -238,7 +217,8 @@ public class VentanaCalculadora extends javax.swing.JFrame {
             pantalla.setText("6");
         }else{
             pantalla.setText(auxiliar + "6");
-        }    }//GEN-LAST:event_boton06ActionPerformed
+        }
+    }//GEN-LAST:event_boton06ActionPerformed
 
     private void boton01ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton01ActionPerformed
                 String auxiliar = pantalla.getText();
@@ -264,7 +244,8 @@ public class VentanaCalculadora extends javax.swing.JFrame {
             pantalla.setText("3");
         }else{
             pantalla.setText(auxiliar + "3");
-        }    }//GEN-LAST:event_boton03ActionPerformed
+        }
+    }//GEN-LAST:event_boton03ActionPerformed
 
     private void boton00ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton00ActionPerformed
         String auxiliar = pantalla.getText();
@@ -272,7 +253,25 @@ public class VentanaCalculadora extends javax.swing.JFrame {
             pantalla.setText("0");
         }else{
             pantalla.setText(auxiliar + "0");
-        }    }//GEN-LAST:event_boton00ActionPerformed
+        }
+    }//GEN-LAST:event_boton00ActionPerformed
+
+    private void sumaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sumaActionPerformed
+        operacion = "+";
+        //Double.valueof convierte un string 
+        //en su equivalente numérico
+        operando1 = Double.valueOf(pantalla.getText());
+        //reseteo la pantalla
+        pantalla.setText("0");
+    }//GEN-LAST:event_sumaActionPerformed
+
+    private void igualActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_igualActionPerformed
+        double operando2 = Double.valueOf(pantalla.getText());
+        if (operacion.equalsIgnoreCase("+")){
+            operando1 = operando1 + operando2;
+        }
+        pantalla.setText(""+operando1);
+    }//GEN-LAST:event_igualActionPerformed
 
     /**
      * @param args the command line arguments
@@ -320,6 +319,8 @@ public class VentanaCalculadora extends javax.swing.JFrame {
     private javax.swing.JButton boton07;
     private javax.swing.JButton boton08;
     private javax.swing.JButton boton09;
+    private javax.swing.JButton igual;
     private javax.swing.JLabel pantalla;
+    private javax.swing.JButton suma;
     // End of variables declaration//GEN-END:variables
 }
